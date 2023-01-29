@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Get build target
+      run: cat Cargo.toml | grep vsersion
     - name: Build
       run: cargo build --verbose
     - name: Run tests
@@ -24,19 +26,6 @@ jobs:
   build-on-windows-x86-64:
 
     runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Get build target
-      run: cat Cargo.toml | grep linux
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
-
-  build-on-linux-arm64:
-
-    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
