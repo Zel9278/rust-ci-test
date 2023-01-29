@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Get build target
-      run: cat Cargo.toml | grep vsersion
+      run: cat Cargo.toml | grep "version"
     - name: Build
       run: cargo build --verbose
     - name: Run tests
